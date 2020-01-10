@@ -16,11 +16,17 @@ class Login_Model extends Model
             ':username' => $uname,
             ':password' => $password
         )); */
-        $stmtUserCheck = $this->db->prepare("SELECT * FROM mvc.users WHERE username=? AND password=?");
-		$stmtUserCheck->bindValue(1,$uname);
-        $stmtUserCheck->bindValue(2,$password);
-        $stmtUserCheck->execute();
+      
+        $stmtUserCheck = $this->db->prepare("SELECT * FROM `mvc.users` WHERE `user.username` =  {$uname}  and `user.password` = {$password}");
+      //  $stmtUserCheck->->bindParam(1, {$uname});
+     //   $stmtUserCheck->->bindParam(2, {$password});
+	//	$stmtUserCheck->bindParms('user.username',$uname);
+     //   $stmtUserCheck->bindParms('user.password',$password);
+     //   $stmtUserCheck->execute();
         var_dump($stmtUserCheck);
+        var_dump($stmtUserCheck->execute());
+     //   var_dump($stmtUserCheck->execute());
+      //  var_dump( $stmtUserCheck->fetchAll(PDO::FETCH_ASSOC));
     }
   
 }

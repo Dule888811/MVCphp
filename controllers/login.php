@@ -14,7 +14,17 @@ class Login extends Controller
    public function run()
    {
        $this->model->run();
+       if($this->model->run())
+       {
+        header('Location: ' . URL);
+       }
    }
+
+   public function logout() {
+    unset($_SESSION);
+    session_destroy();
+    header('Location: ' . URL . 'login/run');
+}
 
 }
 ?>

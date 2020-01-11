@@ -65,17 +65,27 @@ class Login_Model extends Model
             var_dump($stmt->execute()); */
 
 
-            $sql = "Select `id` FROM `users`  WHERE `username` = :username AND `password` = :password
-            ";
+    $sql = "Select `id` FROM `users`  WHERE `username` = :username AND `password` = :password";
     $result = $this->db->prepare($sql);
       
-    var_dump($result->execute(array( 'username' => $uname,
-    'password' => $password)));
+//  $result->execute(array( 'username' => $uname,
+  //  'password' => $password));
     $result->execute(array( 'username' => $uname,
-                            'password' => $password));
-     
+                            'password' => $password));   
+    
+    if ($result->rowCount() > 0) {
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+        session_start();
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['password'] = $user['password'];
+        $_SESSION['id'] = $user['id'];
+       var_dump($_SESSION['id']);
+       return true;
+    } else {
+         echo "nepostojeci korisnici";
     }
   
-}
+    }
+}    
     
 ?>

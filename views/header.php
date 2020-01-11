@@ -9,8 +9,8 @@
 header
 <br />
 <?php 
-session_start();
-if( isset($_SESSION['id'])){
+if(isset($_SESSION['id'])){
+  var_dump(isset($_SESSION['id']));
   ?>  <a href="<?php echo URL;?>login/logout">Logout</a>
 <?php } ?>
 <a href="<?php echo URL;?>index">Index</a>

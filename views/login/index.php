@@ -1,4 +1,4 @@
-<form action="run" method="post">
+<form action="<?php echo URL . 'login/run'?>" method="post">
  <div class="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>

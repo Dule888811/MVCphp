@@ -15,10 +15,12 @@
       ?>  <a href="<?php echo URL;?>login/logout">Logout</a>
           <a href="<?php echo URL;?>dog">Index</a>
           <a href="<?php echo URL;?>blog/create">Napisi blog</a>
+          <a href="<?php echo URL;?>blog/getAll">Pogledaj sve</a>
     <?php } else{
     ?>
-    <a href="<?php echo URL;?>login/index">login</a>
-    <a href="<?php echo URL;?>index">Index</a>
+    <a href="<?php echo URL;?>login/login">login</a>
+    <a href="<?php echo URL;?>dog">Index</a>
+    
     <?php } ?>
 </div>
 <div class="content">

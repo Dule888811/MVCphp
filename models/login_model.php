@@ -37,18 +37,7 @@ if(isset($_POST['uname'])  && isset($_POST['psw'])){
   
     }
 
-    public  function findCommentById($id)
-    {
-        $sql = $this->db->query("SELECT `comments.comment` FROM `comments` 
-         INNER JOIN `blgos` ON c.comments.id = blog.user_id
-         WHERE `id` = '$id'");
-        $result = $this->db->query($sql);
-        if ($result->rowCount() > 0) {
-            $item = $result->fetch(PDO::FETCH_ASSOC);
-        }
-        return $item;
-    } 
-
+  
   
     public function logout()
     {

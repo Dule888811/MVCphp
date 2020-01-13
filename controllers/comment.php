@@ -13,5 +13,13 @@ class Comment extends Controller
         $this->view->render('comment/create',1);
     }
 
+
+  
+    public function add()
+    {
+        $blog_id
+        $user_id
+        $this->view->render('comment/add',1);
+    }
 }
     ?>

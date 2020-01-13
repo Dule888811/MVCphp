@@ -4,7 +4,7 @@
     
 <div>
     
-    <table class="blog" border="1">
+    <table class="blogTable" border="1">
         <tr>
             <td>TEXT</td>
             <td>IMAGE</td>
@@ -22,10 +22,12 @@
             }
             if (!empty($blog['comment'])) {
                 echo '<td>' . $blog['comment'] . '</td>';
-            } else {
-                echo '<td><textarea rows="4" cols="50" name="commentB">Unesite komentar</textarea </td>';
-            }
-            echo '</tr>';
+            } else if($_SESSION['id'] != $blog['user_id']) {
+                
+                echo '<td name="commentAdd">'?> <a href="<?php echo URL;?>comment/add">Unesi komentar</a></td>
+
+<?php     }
+           echo '</tr>';
         }
         ?>
     </table>

@@ -7,6 +7,10 @@
     <input type="password" placeholder="Enter Password" name="psw" required>
 
     <button type="submit">Login</button>
+    <?php if(!isset($_SESSION['id'])){
+    ?><a href="<?php echo URL;?>dog">Index</a><?php
+    } ; ?>
     
-  </div>
-  </form>
+    
+  </div> 
+  </form> 

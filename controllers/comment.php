@@ -17,9 +17,8 @@ class Comment extends Controller
   
     public function add()
     {
-        $blog_id
-        $user_id
-        $this->view->render('comment/add',1);
+       
+        $this->view->render('comment/add($blog_id,$user_id)',1);
     }
 }
     ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 class Comment extends Controller
 {
     public function __construct()
@@ -10,15 +10,18 @@ class Comment extends Controller
 
     public function create()
     {
-        $this->view->render('comment/create',1);
+      
+        $this->view->render('comment/create');
     }
 
 
   
     public function add()
     {
-       
-        $this->view->render('comment/add($blog_id,$user_id)',1);
+        $item['comment'] = $_POST['commentAdd'];
+        $item['user_id'] = $_SESSION['id'];
+        $item['blog_id'] = $_POST['blogId']; 
+        $this->model->add($item);
     }
 }
     ?>

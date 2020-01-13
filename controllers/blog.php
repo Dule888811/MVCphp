@@ -25,7 +25,6 @@ class Blog extends Controller
     public function add()
     {
         session_start();
-        $item['user_id'] = $_SESSION['id'];
         $item['text'] = $_POST['blogT'];
         $item['user_id'] = $_SESSION['id'];
         $item['text'] = $_POST['blogT'];
@@ -36,11 +35,10 @@ class Blog extends Controller
             $ext = $_FILES['image']['name'];
             $ext = explode(".", $ext);
             $ext = array_pop($ext);
-          //  var_dump( $ext);
             if(in_array($ext,$listaExt)) {
                 $item['image']  = file_get_contents($_FILES['image']['tmp_name']);
                 $item['image'] = base64_encode($item['image']);
-         $this->model->add($item);
+                 $this->model->add($item);
             }
         }    
     }

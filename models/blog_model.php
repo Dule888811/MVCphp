@@ -26,34 +26,15 @@ class Blog_Model extends Model
                
       public function add($item) 
       {     
-      /*      session_start();
-            $item['user_id'] = $_SESSION['id'];
-            $item['text'] = $_POST['blogT'];
-            if(isset($_FILES['image']) && $_FILES['image']['size'] > 0){
-                if($_FILES['image']['type'] == 'image/jpeg' || $_FILES['image']['type'] == 'image/png') {
-                    $listaExt = array('png','jpg','jpeg');
-                    $ext = $_FILES['image']['name'];
-                    $ext = explode(".", $ext);
-                    $ext = array_pop($ext);
-                    if(in_array($ext,$listaExt)) {
-                        $item['image'] = file_get_contents($_FILES['image']['tmp_name']);
-                        $item['image'] = base64_encode($item['image']);
-                    }
-                }
-            }     */
-          //  echo "<pre>";
-           // var_dump( $item['user_id'],$item['text'], $item['image']);        
-            $sql ="INSERT INTO `blog` (`user_id`, `text`, `image`)
-            VALUES ('{$item['user_id']}', '{$item['text']}','{$item['image']}' ";
-                            if ( $this->db->exec($sql) == true  ) {
-                                header('Location: ' . URL);
-                            } else{
-                                echo "blog not save";
-                            }
-                            
-                       
-            } 
-    
- 
+     
+            $sql =("INSERT INTO `blog` (`user_id`, `text`, `image`) VALUES (:user_id,:text,:image)");
+            $result = $this->db->prepare($sql);
+            $result->execute(array( ':user_id' => $item['user_id'],
+                                     ':text' => $item['text'],
+                                     ':image' =>  $item['image']));
+            if ($result->rowCount() > 0) {
+             //   header('Location: ' . URL);
+            }
+      }
 }
   ?>

@@ -19,7 +19,7 @@ class Blog extends Controller
         
         $blogs = $this->model->getAll();
        
-        foreach($blogs as $blog)
+   /*     foreach($blogs as $blog)
         {
             if(isset($blog['id']))
             {
@@ -30,7 +30,7 @@ class Blog extends Controller
             } 
             var_dump($this->model->getComment($blog['id']));
            }   
-        }
+        } */
      
         
        $this->view->blogs = $blogs;
@@ -40,7 +40,7 @@ class Blog extends Controller
     public function add()
     {
         session_start();
-        $item = array();
+     //   $item = array();
         $item['user_id'] = $_SESSION['id'];
         $item['text'] = $_POST['blogT'];
         $item['image'] = !empty($_FILES['image']['name']) ? $_FILES['image']['name'] : '';

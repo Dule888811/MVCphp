@@ -12,7 +12,8 @@
           
         </tr>
         <?php
-        foreach ($this->blogs as $blog) {         
+        foreach ($this->blogs as $blog) {     
+            session_start();    
             echo '<tr>';
             echo '<td>' . $blog['text'] . '</td>';
             if (!empty($blog['image'])) {
@@ -20,11 +21,11 @@
             } else {
                 echo '<td>/</td>';
             }
-            if (isset($blog['comment'])) {
-                echo '<td>' . $blog['comment'] . '</td>';
-            } else if($_SESSION['id'] != $blog['user_id'] && isset($blog['id'])) {
+            if($_SESSION['id'] != $blog['user_id']) {
                 echo '<td name="commentAdd">'?> <a href="<?php echo URL;?>comment/create?blogId=<?php echo $blog['id'];?>">Unesi komentar</a></td>;
-          <?php   }
+          <?php   }else{
+             echo '<td></td>';
+          }
                 echo '</tr>'; 
         }      
         ?>

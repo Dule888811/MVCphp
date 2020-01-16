@@ -40,9 +40,6 @@ class Blog_Model extends Model
                
       public function add($item) 
       {     
-        echo "<pre>";
-        var_dump($item['text'],$item['image'],$item['user_id']);
-        die();
             $sql =("INSERT INTO `blog` (`user_id`, `text`, `image`) VALUES (:user_id,:text,:image)");
             $result = $this->db->prepare($sql);
             $result->execute(array( ':user_id' => $item['user_id'],

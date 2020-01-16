@@ -1,5 +1,5 @@
 <?php
-    class Model extends PDO
+    class Model 
     {
             public function __construct()
         {

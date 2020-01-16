@@ -20,15 +20,13 @@
             } else {
                 echo '<td>/</td>';
             }
-            if (!empty($blog['comment'])) {
+            if (isset($blog['comment'])) {
                 echo '<td>' . $blog['comment'] . '</td>';
             } else if($_SESSION['id'] != $blog['user_id'] && isset($blog['id'])) {
                 echo '<td name="commentAdd">'?> <a href="<?php echo URL;?>comment/create?blogId=<?php echo $blog['id'];?>">Unesi komentar</a></td>;
           <?php   }
                 echo '</tr>'; 
-        }
-               
-      
+        }      
         ?>
     </table>
 </div>

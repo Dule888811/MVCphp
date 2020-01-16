@@ -18,7 +18,7 @@ class Blog extends Controller
     {
         
         $blogs = $this->model->getAll();
-       
+        $comments = $this->model->getComments();
    /*     foreach($blogs as $blog)
         {
             if(isset($blog['id']))
@@ -34,6 +34,7 @@ class Blog extends Controller
      
         
        $this->view->blogs = $blogs;
+       $this->view->comments = $comments;
        $this->view->render('blog/index',0);
     }
 

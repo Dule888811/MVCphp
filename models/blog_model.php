@@ -36,8 +36,23 @@ class Blog_Model extends Model
     }else {
             echo "no blogs";
         }
-   }    
-               
+   }   
+   
+   public  function getComments(){
+        $comments[] = '';
+        $sql = "SELECT * FROM `comments`";
+        $result = $this->db->query($sql);
+
+        if ($result->rowCount() > 0) {
+        while ($rs = $result->fetch(PDO::FETCH_ASSOC)) {
+            $comments[] = $rs;
+        }
+
+        return  $comments;
+        }else {
+            echo "Unesite komentar";
+        }
+   }           
       public function add($item) 
       {     
             $sql =("INSERT INTO `blog` (`user_id`, `text`, `image`) VALUES (:user_id,:text,:image)");

@@ -28,6 +28,9 @@ class Comment_Model extends Model
             echo "nije snimnjem komentar";
         }
     }
+
+
+    
         
 }
 

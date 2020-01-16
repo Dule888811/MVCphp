@@ -21,6 +21,14 @@
             } else {
                 echo '<td>/</td>';
             }
+            foreach($this->comments as $comment)
+            {
+                if($comment['blog_id'] ==  $blog['id'])
+                {
+                   ?><td><?php echo $comment['comment'];?></td>
+                   <?php break;
+                }
+            }
             if($_SESSION['id'] != $blog['user_id']) {
                 echo '<td name="commentAdd">'?> <a href="<?php echo URL;?>comment/create?blogId=<?php echo $blog['id'];?>">Unesi komentar</a></td>;
           <?php   }else{
